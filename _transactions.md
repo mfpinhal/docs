@@ -87,13 +87,17 @@ The following table describes the types of transactions currently supported:
 
 Type       | Origin                     | Destination
 ---------- | -------------------------- | -------------------------------------------------------
-deposit    | _ACH_ or _SEPA_ account id | Uphold card id
+deposit    | _ACH_, _CARD_ or _SEPA_ account id | Uphold card id
 withdrawal | Uphold card id             | _ACH_, _SEPA_ or _Bitcoin_ address
 transfer   | Uphold card id             | An email address, an application id, an Uphold username or an Uphold card id
 
 Upon preparing a transaction, a [Transaction Object](#transaction-object) will be returned with a newly-generated `id`.
 <aside class="notice">
   You may only send value from addresses that you own.
+</aside>
+
+<aside class="notice">
+  If the deposit origin is `CARD` you need to send the `SecurityCode` on the request body.
 </aside>
 
 <aside class="notice">
